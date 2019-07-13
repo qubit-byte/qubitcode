@@ -1,0 +1,48 @@
+{
+  "name": "null-client",
+  "version": "0.0.1",
+  "description": "The Null Project Client",
+  "main": "pages/index.tsx",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thenullproject/null-client.git"
+  },
+  "keywords": [
+    "null",
+    "client",
+    "react",
+    "next",
+    "code",
+    "editor"
+  ],
+  "author": "The Null Project",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thenullproject/null-client/issues"
+  },
+  "homepage": "https://github.com/thenullproject/null-client#readme",
+  "dependencies": {
+    "@monaco-editor/react": "^1.0.4",
+    "@types/animejs": "^2.0.2",
+    "@zeit/next-css": "^1.0.1",
+    "animejs": "^3.0.1",
+    "monaco-editor": "^0.17.1",
+    "next": "^9.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-pose": "^4.0.8",
+    "react-pose-text": "^3.1.0",
+    "rsuite": "^3.8.7"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.2",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "typescript": "^3.5.3"
+  }
+}
