@@ -9,7 +9,7 @@ class Header extends Component<any, any> {
         style={{
           height: this.props.router.pathname === '/editor' ? 40 : 70,
           display: 'flex',
-          width: '100%',
+          maxWidth: '100vw',
           boxShadow: '0 2px 20px gray',
           alignItems: 'center',
           paddingLeft: this.props.router.pathname === '/editor' ? '5vw' : '10vw',

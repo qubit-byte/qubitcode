@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import MonacoEditor from '@monaco-editor/react';
 import Header from '../../components/Header';
+import dynamic from 'next/dynamic';
+// const AceEditor = dynamic(() => import('../../components/AceEditor'), {
+//   ssr: false,
+// });
+const MonacoEditor = dynamic(() => import('../../components/MonacoEditor'), {
+  ssr: false,
+});
 
 class Editor extends Component<{}, {}> {
   editor: any;
@@ -14,20 +20,14 @@ class Editor extends Component<{}, {}> {
       <div
         style={{
           display: 'flex',
-          height: '100vh',
-          maxHeight: '100vh',
           flexDirection: 'column',
+          width: '100vw',
+          maxWidth: '100vw',
+          height: '100vh',
         }}
       >
         <Header />
-        <MonacoEditor
-          value="nooooo"
-          language={'typescript'}
-          theme={'dark'}
-          editorDidMount={(_, editor: any) => {
-            this.editor = editor;
-          }}
-        />
+        <MonacoEditor />
       </div>
     );
   }
