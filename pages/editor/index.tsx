@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 // const AceEditor = dynamic(() => import('../../components/AceEditor'), {
 //   ssr: false,
 // });
-const MonacoEditor = dynamic(() => import('../../components/MonacoEditor'), {
-  ssr: false,
-});
+import MonacoEditor from '../../components/MonacoEditor';
 
 class Editor extends Component<{}, {}> {
   editor: any;
@@ -27,7 +25,17 @@ class Editor extends Component<{}, {}> {
         }}
       >
         <Header />
-        <MonacoEditor />
+        <div
+          style={{
+            flex: 1,
+            display: 'flex',
+            width: '100vw',
+            paddingTop: 10,
+            backgroundColor: 'rgb(32,33,36)',
+          }}
+        >
+          <MonacoEditor />
+        </div>
       </div>
     );
   }

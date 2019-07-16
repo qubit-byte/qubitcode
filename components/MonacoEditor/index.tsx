@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import Editor from '@monaco-editor/react';
+import { Loader } from 'rsuite';
+import 'rsuite/dist/styles/rsuite.min.css';
 
 class MonacoEditor extends Component {
   render() {
@@ -7,14 +9,19 @@ class MonacoEditor extends Component {
       <div
         style={{
           flex: 1,
+          display: 'flex',
         }}
       >
         <Editor
           height={'100%'}
-          width={'100vw'}
+          width={'100%'}
           theme={'dark'}
           language={'typescript'}
-          loading={'Loading...'}
+          loading={
+            <div>
+              <Loader size="md" />
+            </div>
+          }
           editorDidMount={(_: any, editor: any) => {
             editor.onDidChangeModelContent((content: any) => {
               console.log(content);

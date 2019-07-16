@@ -10,11 +10,12 @@ class Header extends Component<any, any> {
           height: this.props.router.pathname === '/editor' ? 40 : 70,
           display: 'flex',
           maxWidth: '100vw',
-          boxShadow: '0 2px 20px gray',
+          boxShadow:
+            this.props.router.pathname === '/editor' ? '0 1px 3px black' : '0 2px 20px gray',
           alignItems: 'center',
           paddingLeft: this.props.router.pathname === '/editor' ? '5vw' : '10vw',
           paddingRight: this.props.router.pathname === '/editor' ? '5vw' : '10vw',
-          backgroundColor: 'white',
+          backgroundColor: this.props.router.pathname === '/editor' ? '#2c3e50' : 'white',
           zIndex: 10,
         }}
       >
