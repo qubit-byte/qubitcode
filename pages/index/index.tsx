@@ -27,7 +27,7 @@ class Index extends Component {
     return (
       <div
         style={{
-          backgroundColor: 'rgba(240,240,240,0.5)',
+          background: 'linear-gradient(rgb(18,58,135), rgb(14,21,91))',
           display: 'flex',
           flexDirection: 'column',
         }}
@@ -37,8 +37,6 @@ class Index extends Component {
           style={{
             width: '100%',
             padding: 200,
-            backgroundImage:
-              'url(https://gw.alipayobjects.com/zos/rmsportal/vURDRHvSCZRuuhZecqsS.png)',
             display: 'flex',
             paddingLeft: '10vw',
             paddingRight: '10vw',
@@ -50,8 +48,6 @@ class Index extends Component {
             overflow: 'hidden',
             alignItems: 'center',
             height: 'calc(100vh - 70px)',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
           }}
         >
           <div>

@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header';
-// import dynamic from 'next/dynamic';
-// const AceEditor = dynamic(() => import('../../components/AceEditor'), {
-//   ssr: false,
-// });
-import MonacoEditor from '../../components/MonacoEditor';
+import dynamic from 'next/dynamic';
+const AceEditor = dynamic(() => import('../../components/AceEditor'), {
+  ssr: false,
+});
+const MonacoEditor = dynamic(() => import('../../components/MonacoEditor'), {
+  ssr: false,
+});
+import { withRouter } from 'next/router';
 
-class Editor extends Component<{}, {}> {
+class Editor extends Component<any, {}> {
   editor: any;
   constructor(props: any) {
     super(props);
@@ -34,11 +37,11 @@ class Editor extends Component<{}, {}> {
             backgroundColor: 'rgb(32,33,36)',
           }}
         >
-          <MonacoEditor />
+          {this.props.router.query.min === 'true' ? <AceEditor /> : <MonacoEditor />}
         </div>
       </div>
     );
   }
 }
 
-export default Editor;
+export default withRouter(Editor);

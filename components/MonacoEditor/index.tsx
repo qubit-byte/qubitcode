@@ -11,6 +11,7 @@ class MonacoEditor extends Component {
           flex: 1,
           display: 'flex',
         }}
+        id="shit"
       >
         <Editor
           height={'100%'}

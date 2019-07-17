@@ -1,7 +1,7 @@
 {
-  "name": "null-client",
+  "name": "qubit-code-client",
   "version": "0.0.1",
-  "description": "The Null Project Client",
+  "description": "Qubit Code Editor Client",
   "main": "pages/index.tsx",
   "scripts": {
     "dev": "next",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thenullproject/null-client.git"
+    "url": "git+https://github.com/qubit-byte/qubitcode.git"
   },
   "keywords": [
     "null",
@@ -23,9 +23,9 @@
   "author": "The Null Project",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thenullproject/null-client/issues"
+    "url": "https://github.com/qubit-byte/qubitcode/issues"
   },
-  "homepage": "https://github.com/thenullproject/null-client#readme",
+  "homepage": "https://github.com/qubit-byte/qubitcode/",
   "dependencies": {
     "@monaco-editor/react": "^1.0.4",
     "@types/animejs": "^2.0.2",
