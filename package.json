@@ -13,14 +13,14 @@
     "url": "git+https://github.com/qubit-byte/qubitcode.git"
   },
   "keywords": [
-    "null",
+    "qubit",
     "client",
     "react",
     "next",
     "code",
     "editor"
   ],
-  "author": "The Null Project",
+  "author": "Qubit Byte",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/qubit-byte/qubitcode/issues"
