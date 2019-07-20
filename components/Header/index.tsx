@@ -16,6 +16,7 @@ class Header extends Component<any, any> {
           paddingRight: this.props.router.pathname === '/editor' ? '5vw' : '10vw',
           backgroundColor: this.props.router.pathname === '/editor' ? '#2c3e50' : 'clear',
           zIndex: 10,
+          position: this.props.router.pathname === '/editor' ? 'relative' : 'absolute',
         }}
       >
         <img

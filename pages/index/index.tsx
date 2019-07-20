@@ -1,84 +1,127 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header';
 import 'rsuite/dist/styles/rsuite.min.css';
-import anime from 'animejs';
-import SplitText from 'react-pose-text';
-import { Button } from 'rsuite';
+// import anime from 'animejs';
+import Head from 'next/head';
+import './index.css';
 
 class Index extends Component {
+  effect: any;
   componentDidMount() {
-    anime({
-      targets: '#interconnect',
-      opacity: 1,
-      duration: 1000,
-      easing: 'easeInOutSine',
+    window.requestAnimationFrame(() => {
+      this.createVanta();
     });
   }
+
+  createVanta() {
+    //@ts-ignore
+    this.effect = window.VANTA.BIRDS({
+      el: '#vanta',
+      colorMode: 'variance',
+      separation: 40.0,
+      quantity: 3.0,
+      backgroundColor: 0x0c0032,
+    });
+  }
+
   render() {
-    const charPoses = {
-      exit: { opacity: 0, y: 20 },
-      enter: {
-        opacity: 1,
-        y: 0,
-        //@ts-ignore
-        delay: d => d.charIndex * 40,
-      },
-    };
     return (
       <div
         style={{
-          background: 'linear-gradient(rgb(18,58,135), rgb(14,21,91))',
           display: 'flex',
           flexDirection: 'column',
+          height: '100vh',
+          overflow: 'scroll',
         }}
+        onScroll={e => {
+          //@ts-ignore
+          if (e.target.scrollTop === 0) {
+            alert('topped');
+          }
+        }}
+        id="container"
       >
         <Header />
+        <Head>
+          <script src="/static/three.min.js" />
+          <script src="/static/vanta.rings.min.js" />
+          <script src="/static/vanta.birds.min.js" />
+        </Head>
         <div
           style={{
             width: '100%',
-            padding: 200,
+            height: '100%',
+            position: 'absolute',
+          }}
+          id="vanta"
+        />
+        <section
+          style={{
+            height: 'calc(100vh)',
+            width: '100%',
             display: 'flex',
-            paddingLeft: '10vw',
-            paddingRight: '10vw',
-            color: 'white',
-            fontFamily: 'raleway',
-            fontSize: '5em',
-            fontWeight: 700,
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
             alignItems: 'center',
-            height: 'calc(100vh - 70px)',
+            padding: '15vw',
+            zIndex: 1,
+            minHeight: 'calc(100vh)',
           }}
         >
           <div>
-            <div>
-              <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-                Create the Future
-              </SplitText>
-            </div>
-            <h3 style={{ opacity: 0 }} id="interconnect">
-              Where ideas interconnect
+            <h3
+              style={{
+                color: 'white',
+                fontFamily: 'Darker Grotesque',
+                margin: 0,
+                fontSize: '2.5em',
+                fontWeight: 500,
+              }}
+            >
+              We've inherited the past, now let's
             </h3>
-            <Button color="blue" size="lg" href="/signup">
-              Get started now
-            </Button>
+            <h2
+              style={{
+                color: 'white',
+                fontFamily: 'Darker Grotesque',
+                margin: 0,
+                fontSize: '4em',
+                fontWeight: 700,
+                marginTop: 20,
+              }}
+            >
+              create
+            </h2>
+            <h1
+              style={{
+                color: 'white',
+                fontWeight: 600,
+                fontSize: '8em',
+                fontFamily: 'Prompt',
+                marginTop: 20,
+                marginBottom: 50,
+              }}
+            >
+              the Future with code
+            </h1>
+            <button
+              style={{
+                fontSize: '1.3em',
+                fontWeight: 600,
+              }}
+            >
+              Get started
+            </button>
           </div>
-          <div
-            style={{
-              width: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-end',
-            }}
-          >
-            <div style={{}}>
-              <img
-                src="https://gw.alipayobjects.com/mdn/prod_resou/afts/img/A*QT3DQZcBDqwAAAAAAAAAAABjARQnAQ"
-                style={{ width: '40vw', objectFit: 'contain' }}
-              />
-            </div>
-          </div>
-        </div>
+        </section>
+        <section
+          style={{
+            zIndex: 3,
+            background: 'linear-gradient(#0c0032, rgb(255,255,255) 100%)',
+            paddingTop: 100,
+          }}
+        >
+          <h1>Work, play, share</h1>
+          <h3>But most importantly have fun</h3>
+        </section>
       </div>
     );
   }

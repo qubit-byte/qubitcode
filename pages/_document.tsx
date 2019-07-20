@@ -11,6 +11,14 @@ class Doc extends Document {
             margin: 0,
           }}
         >
+          <link
+            href="https://fonts.googleapis.com/css?family=Darker+Grotesque:400,500,700,800&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css?family=Prompt:400,500,600,700&display=swap"
+            rel="stylesheet"
+          />
           <Main />
           <NextScript />
         </body>
