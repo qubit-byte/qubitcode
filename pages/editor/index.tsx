@@ -27,7 +27,7 @@ class Editor extends Component<any, {}> {
           height: '100vh',
         }}
       >
-        <Header />
+        <Header bgColor="2c3e50" />
         <div
           style={{
             flex: 1,

@@ -4,8 +4,19 @@ import 'rsuite/dist/styles/rsuite.min.css';
 // import anime from 'animejs';
 import Head from 'next/head';
 import './index.css';
+import Router from 'next/router';
 
-class Index extends Component {
+interface State {
+  headerBGColor: string;
+}
+
+class Index extends Component<{}, State> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      headerBGColor: 'transparent',
+    };
+  }
   effect: any;
   componentDidMount() {
     window.requestAnimationFrame(() => {
@@ -32,16 +43,18 @@ class Index extends Component {
           flexDirection: 'column',
           height: '100vh',
           overflow: 'scroll',
+          backgroundColor: '#0c0032',
         }}
         onScroll={e => {
           //@ts-ignore
           if (e.target.scrollTop === 0) {
-            alert('topped');
+            this.setState({ headerBGColor: 'transparent' });
+            return;
           }
+          this.setState({ headerBGColor: '#140055' });
         }}
-        id="container"
       >
-        <Header />
+        <Header bgColor={this.state.headerBGColor} />
         <Head>
           <script src="/static/three.min.js" />
           <script src="/static/vanta.rings.min.js" />
@@ -52,6 +65,8 @@ class Index extends Component {
             width: '100%',
             height: '100%',
             position: 'absolute',
+            filter: this.state.headerBGColor === 'transparent' ? undefined : 'blur(2px)',
+            transition: '0.5s',
           }}
           id="vanta"
         />
@@ -103,6 +118,7 @@ class Index extends Component {
               the Future with code
             </h1>
             <button
+              onClick={() => Router.push('/signup')}
               style={{
                 fontSize: '1.3em',
                 fontWeight: 600,
@@ -115,12 +131,50 @@ class Index extends Component {
         <section
           style={{
             zIndex: 3,
-            background: 'linear-gradient(#0c0032, rgb(255,255,255) 100%)',
+            background: 'linear-gradient(#0c0032, #1C0074)',
+            padding: '15vw',
             paddingTop: 100,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'column',
           }}
         >
-          <h1>Work, play, share</h1>
-          <h3>But most importantly have fun</h3>
+          <h1
+            style={{
+              fontSize: '5em',
+              color: 'white',
+              fontWeight: 700,
+              fontFamily: 'Prompt',
+            }}
+          >
+            Work. Play. Share.
+          </h1>
+          <div style={{ display: 'flex', alignItems: 'center', marginTop: 50 }}>
+            <h3
+              style={{
+                fontFamily: 'Darker Grotesque',
+                color: 'white',
+                opacity: 0.7,
+                fontSize: '1.5em',
+                fontWeight: 600,
+                margin: 0,
+              }}
+            >
+              But most importantly
+            </h3>
+            <h2
+              style={{
+                fontFamily: 'Prompt',
+                fontWeight: 700,
+                fontSize: '2.5em',
+                margin: 0,
+                color: 'white',
+              }}
+            >
+               have fun 🎉
+            </h2>
+          </div>
         </section>
       </div>
     );
